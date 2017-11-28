@@ -5,63 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Controle de estruturas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Novo menu", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table">
+<table class="table table-striped table-bordered table-hover">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idPermissao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idPai)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Principal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Imagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImagemMenu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LinkManual)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UrlManual)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ordem)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Descricao)
+           Pai
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataCriacao)
+            @Html.DisplayNameFor(model => model.Tipo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateAlteracao)
+            Permissão
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UsuarioCriacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UsuarioEdicao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idCliente)
+            @Html.DisplayNameFor(model => model.Principal)
         </th>
         <th></th>
     </tr>
@@ -69,60 +33,24 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idPermissao)
+            @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.idPai)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>   
+            @Html.DisplayFor(modelItem => item.idPermissao)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Principal)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Imagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImagemMenu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LinkManual)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UrlManual)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ordem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataCriacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateAlteracao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UsuarioCriacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UsuarioEdicao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idCliente)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
