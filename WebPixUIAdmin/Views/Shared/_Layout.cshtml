@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WebPix Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/layout2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/layout2/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Content/layout2/css/fullcalendar.css" />
+    <link rel="stylesheet" href="~/Content/layout2/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Content/layout2/css/matrix-media.css" />
+    <link href="~/Content/layout2/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/layout2/css/jquery.gritter.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!--Header-part-->
+    <div id="header">
+        <h1><a href="/home/index">WebPix Admin</a></h1>
+    </div>
+    <!--close-Header-part-->
+    <!--top-Header-menu-->
+    <div id="user-nav" class="navbar navbar-inverse">
+        <ul class="nav">
+            <li class="dropdown" id="profile-messages">
+                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text" id="UsuarioLogado"></span><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="icon-user"></i> Meu Perfil</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="icon-check"></i> Favoritos</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/home/Logout"><i class="icon-key"></i> Sair</a></li>
+                </ul>
+            </li>
+            <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Configurações</span></a></li>
+            <li class=""><a title="" href="/home/Logout"><i class="icon icon-share-alt"></i> <span class="text">Sair</span></a></li>
+        </ul>
+    </div>
+    <!--close-top-Header-menu-->
+    <!--start-top-serch-->
+    <div id="search">
+        <input type="text" placeholder="Pesquisar" />
+        <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
+    </div>
+
+    <div id="sidebar">
+        <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+        <ul>
+            <li class="active"><a href="./"><i class="icon icon-home"></i> <span>Home</span></a> </li>
+            <li> <a href="/Page"><i class="icon icon-file"></i> <span>Paginas</span></a> </li>
+            <li> <a href="/Usuario"><i class="icon  icon-group"></i> <span>Usuarios</span></a> </li>
+            <li><a href="/Perfil"><i class="icon  icon-lock"></i> <span>Perfil</span></a></li>
+            <li><a href="/Menu"><i class="icon icon-list-ol"></i> <span>Estrutura</span></a></li>
+            <li><a href="/Estilo"><i class="icon icon-star"></i> <span>Estilo</span></a></li>
+            <li><a href="/Configuracao"><i class="icon  icon-cog"></i> <span>Configurações</span></a></li>
+            @*<li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
+                <li class="submenu">
+                    <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
+                    <ul>
+                        <li><a href="form-common.html">Basic Form</a></li>
+                        <li><a href="form-validation.html">Form with Validation</a></li>
+                        <li><a href="form-wizard.html">Form with Wizard</a></li>
+                    </ul>
+                </li>
+                    <li class="submenu">
+                    <a href="#"><i class="icon icon-file"></i> <span>Addons</span> <span class="label label-important">5</span></a>
+                    <ul>
+                        <li><a href="index2.html">Dashboard2</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="invoice.html">Invoice</a></li>
+                        <li><a href="chat.html">Chat option</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="icon icon-info-sign"></i> <span>Error</span> <span class="label label-important">4</span></a>
+                    <ul>
+                        <li><a href="error403.html">Error 403</a></li>
+                        <li><a href="error404.html">Error 404</a></li>
+                        <li><a href="error405.html">Error 405</a></li>
+                        <li><a href="error500.html">Error 500</a></li>
+                    </ul>
+                </li>
+            *@
+
+            @*<li class="content">
+                    <span>Monthly Bandwidth Transfer</span>
+                    <div class="progress progress-mini progress-danger active progress-striped">
+                        <div style="width: 77%;" class="bar"></div>
+                    </div>
+                    <span class="percent">77%</span>
+                    <div class="stat">21419.94 / 14000 MB</div>
+                </li>
+                <li class="content">
+                    <span>Disk Space Usage</span>
+                    <div class="progress progress-mini active progress-striped">
+                        <div style="width: 87%;" class="bar"></div>
+                    </div>
+                    <span class="percent">87%</span>
+                    <div class="stat">604.44 / 4000 MB</div>
+                </li>*@
+        </ul>
+    </div>
+
+    <div id="content">
+        <!--breadcrumbs-->
+        <div id="content-header">
+            <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+        </div>
+        <div class="conteudo" style="padding: 15px 15px 0 15px;">
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <!--end-main-container-part-->
+    <!--Footer-part-->
+
+    <div class="row-fluid">
+        <div id="footer" class="span12"> Criado e desenvido por Pixel Soluções inteligentes </div>
+    </div>
+
+    <!--end-Footer-part-->
+
+    <script src="~/Content/layout2/js/excanvas.min.js"></script>
+    <script src="~/Content/layout2/js/jquery.min.js"></script>
+    <script src="~/Content/layout2/js/jquery.ui.custom.js"></script>
+    <script src="~/Content/layout2/js/bootstrap.min.js"></script>
+    <script src="~/Content/layout2/js/jquery.flot.min.js"></script>
+    <script src="~/Content/layout2/js/jquery.flot.resize.min.js"></script>
+    <script src="~/Content/layout2/js/jquery.peity.min.js"></script>
+    <script src="~/Content/layout2/js/fullcalendar.min.js"></script>
+    <script src="~/Content/layout2/js/matrix.js"></script>
+    <script src="~/Content/layout2/js/matrix.dashboard.js"></script>
+    <script src="~/Content/layout2/js/jquery.gritter.min.js"></script>
+    <script src="~/Content/layout2/js/matrix.interface.js"></script>
+    <script src="~/Content/layout2/js/matrix.chat.js"></script>
+    <script src="~/Content/layout2/js/jquery.validate.js"></script>
+    <script src="~/Content/layout2/js/matrix.form_validation.js"></script>
+    <script src="~/Content/layout2/js/jquery.wizard.js"></script>
+    <script src="~/Content/layout2/js/jquery.uniform.js"></script>
+    <script src="~/Content/layout2/js/select2.min.js"></script>
+    <script src="~/Content/layout2/js/matrix.popover.js"></script>
+    <script src="~/Content/layout2/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/layout2/js/matrix.tables.js"></script>
+    <script type="text/javascript">
+
+        var idcliente = jQuery.parseJSON(readCookie("UsuarioLogado"));
+        $("#UsuarioLogado").html(idcliente.Login);
+        // This function is called from the pop-up menus to transfer to
+        // a different page. Ignore if the value returned is a null string:
+        function goPage(newURL) {
+
+            // if url is empty, skip the menu dividers and reset the menu selection to default
+            if (newURL != "") {
+
+                // if url is "-", it is this page -- reset the menu:
+                if (newURL == "-") {
+                    resetMenu();
+                }
+                // else, send page to designated URL
+                else {
+                    document.location.href = newURL;
+                }
+            }
+        }
+
+        // resets the menu selection upon entry to this page:
+        function resetMenu() {
+            document.gomenu.selector.selectedIndex = 2;
+        }
+
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,123 @@
+﻿@model WebPixUIAdmin.Models.Produto.ProdutoSkuViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProdutoSkuViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDProduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodSkuExterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodSkuExterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkuEstoque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkuEstoque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkuPeso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkuPeso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCriacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCriacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAlteracao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAlteracao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioCriacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioCriacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCliente)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

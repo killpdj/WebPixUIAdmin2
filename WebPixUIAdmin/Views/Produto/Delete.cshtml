@@ -1,0 +1,177 @@
+﻿@model WebPixUIAdmin.Models.Produto.ProdutoViewModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProdutoViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodExterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodExterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fabrinte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fabrinte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estoque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estoque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Catalogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catalogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comprimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comprimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Largura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Largura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Altura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Altura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstoqueMinimo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstoqueMinimo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescricaoLonga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescricaoLonga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCriacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCriacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAlteracao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAlteracao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioCriacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioCriacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCliente)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

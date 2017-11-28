@@ -1,0 +1,99 @@
+﻿@model WebPixUIAdmin.Models.UsuarioViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Html.DisplayFor(model => model.Login)</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Login) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SobreNome) :
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.SobreNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Perfil de Usuario :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerfilUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCriacao) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCriacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAlteracao) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAlteracao) 
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioCriacao):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioCriacao) 
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioEdicao) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioEdicao) 
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ativo) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

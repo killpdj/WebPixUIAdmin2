@@ -1,0 +1,82 @@
+﻿@model WebPixUIAdmin.Models.PageViewModel
+
+@{
+    ViewBag.Title = "Criar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div style="display:block;float:left;">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Conteudo, new { @class = "form-control", @style = "width: 850px; height: 400px;" })
+                    @Html.ValidationMessageFor(model => model.Conteudo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div style="display:block;float:left;padding: 0 0 0 12px;">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nome" } })
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control", @placeholder = "Url" } })
+                    @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+                </div>
+                <div style="position: absolute;left: 1104px;top: 90px;">
+                    <i class="icon-info-sign"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Titulo" } })
+                    @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            @Html.HiddenFor(model => model.idMenu, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.idMenu, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <select id="Ativo" class="form-control" name="Ativo">
+                        <option value="true">Ativo</option>
+                        <option value="false">Inativo</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.Ativo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" style="float:left;">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Criar" class="btn btn-success" />
+                </div>
+            </div>
+            <div style="padding: 0 0 0 182px;">
+                @Html.ActionLink("Voltar", "Index")
+            </div>
+        </div>
+
+    </div>
+}
+
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({ selector: 'textarea' });</script>
+
+
+
+

@@ -1,0 +1,115 @@
+﻿@model IEnumerable<WebPixUIAdmin.Models.Produto.ProdutoViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodExterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fabrinte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estoque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Catalogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comprimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Largura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Altura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstoqueMinimo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescricaoLonga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCliente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodExterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fabrinte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estoque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Catalogo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comprimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Largura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Altura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstoqueMinimo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescricaoLonga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCliente)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

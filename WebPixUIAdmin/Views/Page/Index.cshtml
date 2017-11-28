@@ -1,0 +1,107 @@
+﻿@model IEnumerable<WebPixUIAdmin.Models.PageViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Controle de paginas</h2>
+
+<p>
+    @Html.ActionLink("Nova Pagina", "Create", null,new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @{ 
+                if(item.Ativo == "true")
+                {
+                    <u style="text-decoration:none">Sim</u>
+                }
+                else
+                {
+                    <u style="text-decoration:none">Não</u>
+                }
+            }
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
+            <a data-toggle="modal" data-target="#Delete" id="deletar" href="javascript:void()" onclick="SetId(@item.ID)">Deletar</a>
+        </td>
+    </tr>
+}
+
+</table>
+<input type="hidden" value="0" id="IntpDeletar" />
+<div id="Delete" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Deletar</h4>
+            </div>
+            <div class="modal-body">
+                <p>Você reamente deseja deletar está pagina ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"  onclick="deletar()">Deletar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function SetId(id)
+    {
+        $("#IntpDeletar").val(id);
+    }
+    function deletar()
+    {
+        $.post("/Page/Delete/" + $("#IntpDeletar").val(), function (data) {
+            $(".result").html(data);
+            window.location.reload();
+        });
+    }
+</script>

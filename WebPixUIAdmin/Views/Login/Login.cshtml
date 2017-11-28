@@ -1,0 +1,72 @@
+﻿@model WebPixUIAdmin.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WebPix Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/layout2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/layout2/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/layout2/css/matrix-login.css" rel="stylesheet" />
+    <link href="~/Content/layout2/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/layout2/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+    <div id="loginbox">
+
+        @using (Html.BeginForm())
+        { 
+
+            <div class="control-group normal_text">
+                <h3>WebPix Admin</h3>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on bg_lg"><i class="icon-user"> </i> </span><input id="Login" name="Login" type="text" placeholder="Usuario" />
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on bg_ly"><i class="icon-lock"></i></span><input id="Senha" name="Senha" type="password" placeholder="Senha" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Esqueceu sua senha?</a></span>
+                <span class="pull-right"><button type="submit" class="btn btn-success"> Login</button></span>
+            </div>
+        }
+        <form id="recoverform" action="#" class="form-vertical">
+            <p class="normal_text">Preencha com seu email Cadastrado que ja enviamos a sua nova senha.</p>
+
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail" />
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Voltar</a></span>
+                <span class="pull-right"><a class="btn btn-info" />Recuperar</a></span>
+            </div>
+        </form>
+    </div>
+
+    <script src="~/Content/layout2/js/jquery.min.js"></script>
+    <script src="~/Content/layout2/js/matrix.login.js"></script>
+</body>
+
+</html>
