@@ -10,7 +10,6 @@ namespace WebPixUIAdmin.Controllers
 {
     public class UsuarioController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
         private int IDCliente = PixCore.PixCoreValues.IDCliente;
 
         // GET: Usuario
@@ -171,9 +170,7 @@ namespace WebPixUIAdmin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            UsuarioViewModel usuarioViewModel = db.UsuarioViewModels.Find(id);
-            db.UsuarioViewModels.Remove(usuarioViewModel);
-            db.SaveChanges();
+            
             return RedirectToAction("Index");
         }
 
@@ -181,7 +178,7 @@ namespace WebPixUIAdmin.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+              //  db.Dispose();
             }
             base.Dispose(disposing);
         }

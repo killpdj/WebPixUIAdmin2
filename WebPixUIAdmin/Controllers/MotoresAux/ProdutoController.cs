@@ -14,7 +14,6 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
 {
     public class ProdutoController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
         private int IDCliente = PixCore.PixCoreValues.IDCliente;
 
         // GET: Produto
@@ -153,16 +152,8 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
         // GET: Produto/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProdutoViewModel produtoViewModel = db.ProdutoViewModels.Find(id);
-            if (produtoViewModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(produtoViewModel);
+            
+            return View();
         }
 
         // POST: Produto/Delete/5
@@ -180,7 +171,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
         {
             if (disposing)
             {
-                db.Dispose();
+              /// db.Dispose();
             }
             base.Dispose(disposing);
         }

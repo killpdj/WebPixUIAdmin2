@@ -13,7 +13,6 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
 {
     public class PropiedadesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
         private int IDCliente = PixCore.PixCoreValues.IDCliente;
 
         // GET: Propiedades
@@ -146,16 +145,8 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
         // GET: Propiedades/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PropiedadesViewModel propiedadesViewModel = db.PropiedadesViewModels.Find(id);
-            if (propiedadesViewModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(propiedadesViewModel);
+           
+            return View();
         }
 
         // POST: Propiedades/Delete/5
@@ -163,9 +154,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PropiedadesViewModel propiedadesViewModel = db.PropiedadesViewModels.Find(id);
-            db.PropiedadesViewModels.Remove(propiedadesViewModel);
-            db.SaveChanges();
+            
             return RedirectToAction("Index");
         }
 
@@ -173,7 +162,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
         {
             if (disposing)
             {
-                db.Dispose();
+               // db.Dispose();
             }
             base.Dispose(disposing);
         }

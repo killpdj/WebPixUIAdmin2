@@ -10,7 +10,6 @@ namespace WebPixUIAdmin.Controllers
 {
     public class MenuController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
         private int IDCliente = PixCore.PixCoreValues.IDCliente;
 
         // GET: Menu
@@ -168,7 +167,7 @@ namespace WebPixUIAdmin.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+               // db.Dispose();
             }
             base.Dispose(disposing);
         }

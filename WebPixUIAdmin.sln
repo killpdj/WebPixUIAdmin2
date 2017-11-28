@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPixUIAdmin", "WebPixUIAdmin\WebPixUIAdmin.csproj", "{32D39FA7-FE72-402A-A87A-65196CFE11F7}"
 EndProject
@@ -19,13 +19,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://webpixdev.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = WebPixUIAdmin\\WebPixUIAdmin.csproj
-		SccProjectName1 = WebPixUIAdmin
-		SccLocalPath1 = WebPixUIAdmin
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {409024FD-0684-4B22-9076-31D7A2B834E0}
 	EndGlobalSection
 EndGlobal

@@ -9,7 +9,6 @@ namespace WebPixUIAdmin.Controllers
 {
     public class PerfilController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
         private int IDCliente = PixCore.PixCoreValues.IDCliente;
 
         // GET: Perfil
@@ -157,9 +156,7 @@ namespace WebPixUIAdmin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PerfilViewModel perfilViewModel = db.PerfilViewModels.Find(id);
-            db.PerfilViewModels.Remove(perfilViewModel);
-            db.SaveChanges();
+            
             return RedirectToAction("Index");
         }
 
@@ -167,7 +164,7 @@ namespace WebPixUIAdmin.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+              //  db.Dispose();
             }
             base.Dispose(disposing);
         }

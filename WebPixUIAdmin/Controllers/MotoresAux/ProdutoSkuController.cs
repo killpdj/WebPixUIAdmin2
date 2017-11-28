@@ -15,7 +15,6 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
 {
     public class ProdutoSkuController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
         private int IDCliente = PixCore.PixCoreValues.IDCliente;
 
         // GET: ProdutoSku
@@ -147,16 +146,8 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
         // GET: ProdutoSku/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProdutoSkuViewModel produtoSkuViewModel = db.ProdutoSkuViewModels.Find(id);
-            if (produtoSkuViewModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(produtoSkuViewModel);
+            
+            return View();
         }
 
         // POST: ProdutoSku/Delete/5
@@ -164,9 +155,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProdutoSkuViewModel produtoSkuViewModel = db.ProdutoSkuViewModels.Find(id);
-            db.ProdutoSkuViewModels.Remove(produtoSkuViewModel);
-            db.SaveChanges();
+           
             return RedirectToAction("Index");
         }
 
@@ -174,7 +163,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
         {
             if (disposing)
             {
-                db.Dispose();
+              //  db.Dispose();
             }
             base.Dispose(disposing);
         }

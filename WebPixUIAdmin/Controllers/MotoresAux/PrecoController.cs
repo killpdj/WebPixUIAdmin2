@@ -13,7 +13,6 @@ namespace WebPixUIAdmin.Controllers
 {
     public class PrecoController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
         private int IDCliente = PixCore.PixCoreValues.IDCliente;
         // GET: Preco
         public ActionResult Index()
@@ -143,16 +142,8 @@ namespace WebPixUIAdmin.Controllers
         // GET: Preco/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PrecoViewModel precoViewModel = db.PrecoViewModels.Find(id);
-            if (precoViewModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(precoViewModel);
+           
+            return View();
         }
 
         // POST: Preco/Delete/5
@@ -160,9 +151,7 @@ namespace WebPixUIAdmin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PrecoViewModel precoViewModel = db.PrecoViewModels.Find(id);
-            db.PrecoViewModels.Remove(precoViewModel);
-            db.SaveChanges();
+            
             return RedirectToAction("Index");
         }
 
@@ -170,7 +159,7 @@ namespace WebPixUIAdmin.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+               // db.Dispose();
             }
             base.Dispose(disposing);
         }
