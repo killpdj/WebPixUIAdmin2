@@ -5,7 +5,6 @@ using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using WebPixUIAdmin.Models;
 using WebPixUIAdmin.Models.Produto;
 using WebPixUIAdmin.PixCore;
 

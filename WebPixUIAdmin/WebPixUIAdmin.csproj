@@ -196,13 +196,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Principal\ConfiguracaoController.cs" />
     <Compile Include="Controllers\Principal\EstiloController.cs" />
+    <Compile Include="Controllers\Principal\EstruturaController.cs" />
     <Compile Include="Controllers\Principal\HomeController.cs" />
     <Compile Include="Controllers\Principal\LoginController.cs" />
     <Compile Include="Controllers\Principal\MenuController.cs" />
-    <Compile Include="Controllers\MotoresAux\PrecoController.cs" />
-    <Compile Include="Controllers\MotoresAux\ProdutoController.cs" />
-    <Compile Include="Controllers\MotoresAux\ProdutoSkuController.cs" />
-    <Compile Include="Controllers\MotoresAux\PropiedadesController.cs" />
+    <Compile Include="Controllers\MotoresAux\Produto\PrecoController.cs" />
+    <Compile Include="Controllers\MotoresAux\Produto\ProdutoController.cs" />
+    <Compile Include="Controllers\MotoresAux\Produto\ProdutoSkuController.cs" />
+    <Compile Include="Controllers\MotoresAux\Produto\PropiedadesController.cs" />
     <Compile Include="Controllers\Principal\PageController.cs" />
     <Compile Include="Controllers\Principal\PerfilController.cs" />
     <Compile Include="Controllers\Principal\UsuarioController.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="Models\Principal\ClienteViewModel.cs" />
     <Compile Include="Models\Principal\ConfiguracaoViewModel.cs" />
     <Compile Include="Models\Principal\EstiloViewModel.cs" />
+    <Compile Include="Models\Principal\EstruturaViewModel.cs" />
     <Compile Include="Models\Principal\LoginViewModel.cs" />
     <Compile Include="Models\Principal\MenuViewModel.cs" />
     <Compile Include="Models\Principal\PageViewModel.cs" />
@@ -224,6 +226,7 @@
     <Compile Include="Models\Auxiliares\Produto\PropiedadesViewModel.cs" />
     <Compile Include="Models\Principal\UsuarioViewModel.cs" />
     <Compile Include="Helper\PixCore\PixCore.cs" />
+    <Compile Include="Models\WebPixUIAdminContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -475,6 +478,11 @@
     <Content Include="Views\Propiedades\Details.cshtml" />
     <Content Include="Views\Propiedades\Edit.cshtml" />
     <Content Include="Views\Propiedades\Index.cshtml" />
+    <Content Include="Views\Estrutura\Create.cshtml" />
+    <Content Include="Views\Estrutura\Delete.cshtml" />
+    <Content Include="Views\Estrutura\Details.cshtml" />
+    <Content Include="Views\Estrutura\Edit.cshtml" />
+    <Content Include="Views\Estrutura\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
