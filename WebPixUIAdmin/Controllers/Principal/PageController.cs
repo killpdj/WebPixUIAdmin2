@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using WebPixUIAdmin.Models;
+using WebPixUIAdmin.Models.Principal;
 using WebPixUIAdmin.PixCore;
 
 namespace WebPixUIAdmin.Controllers
@@ -38,7 +39,7 @@ namespace WebPixUIAdmin.Controllers
             }
 
             var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
-            var url = keyUrl + "Seguranca/Principal/buscarpaginas/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
+            var url = keyUrl + "seguranca/Principal/BuscarTemas/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
             var client = new WebClient { Encoding = System.Text.Encoding.UTF8 };
             var result = client.DownloadString(string.Format(url));
             var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
@@ -56,6 +57,18 @@ namespace WebPixUIAdmin.Controllers
         {
             return View();
         }
+        public ActionResult CreateHelper()
+        {
+            var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
+            var url = keyUrl + "Seguranca/Principal/BuscarTemas/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
+            var client = new WebClient { Encoding = System.Text.Encoding.UTF8 };
+            var result = client.DownloadString(string.Format(url));
+            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+            TemasViewModel[] pageViewModel = jss.Deserialize<TemasViewModel[]>(result);
+            ViewBag.Conteudo = pageViewModel.FirstOrDefault().Conteudo;
+            return View();
+        }
+        
 
         // POST: Page/Create
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
@@ -140,6 +153,8 @@ namespace WebPixUIAdmin.Controllers
             }
             return View(pageViewModel);
         }
+
+
 
         // GET: Page/Delete/5
         public JsonResult Delete(int? id)

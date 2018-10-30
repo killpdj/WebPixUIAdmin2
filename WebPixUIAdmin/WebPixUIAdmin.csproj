@@ -224,6 +224,7 @@
     <Compile Include="Models\Auxiliares\Produto\ProdutoSkuViewModel.cs" />
     <Compile Include="Models\Auxiliares\Produto\ProdutoViewModel.cs" />
     <Compile Include="Models\Auxiliares\Produto\PropiedadesViewModel.cs" />
+    <Compile Include="Models\Principal\TemasViewModel.cs" />
     <Compile Include="Models\Principal\UsuarioViewModel.cs" />
     <Compile Include="Helper\PixCore\PixCore.cs" />
     <Compile Include="Models\WebPixUIAdminContext.cs" />
@@ -233,6 +234,21 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dragonfly\.gitignore" />
+    <Content Include="Content\dragonfly\dist\grapesjs-blocks-basic.min.js" />
+    <Content Include="Content\dragonfly\dist\grapesjs-preset-webpage.min.css" />
+    <Content Include="Content\dragonfly\dist\grapesjs-preset-webpage.min.js" />
+    <Content Include="Content\dragonfly\index.html" />
+    <Content Include="Content\dragonfly\src\blocks.js" />
+    <Content Include="Content\dragonfly\src\blocks\index.js" />
+    <Content Include="Content\dragonfly\src\commands\index.js" />
+    <Content Include="Content\dragonfly\src\commands\openImport.js" />
+    <Content Include="Content\dragonfly\src\components\index.js" />
+    <Content Include="Content\dragonfly\src\consts.js" />
+    <Content Include="Content\dragonfly\src\index.js" />
+    <Content Include="Content\dragonfly\src\panels\index.js" />
+    <Content Include="Content\dragonfly\src\styles\index.js" />
+    <Content Include="Content\dragonfly\webpack.config.js" />
     <Content Include="Content\layout2\buttons.html" />
     <Content Include="Content\layout2\calendar.html" />
     <Content Include="Content\layout2\charts.html" />
@@ -395,6 +411,12 @@
     <Content Include="Content\layout2\img\demo\Thumbs.db" />
     <Content Include="Content\layout2\img\icons\32\Thumbs.db" />
     <Content Include="Content\layout2\img\Thumbs.db" />
+    <Content Include="Content\dragonfly\LICENSE" />
+    <Content Include="Content\dragonfly\package-lock.json" />
+    <Content Include="Content\dragonfly\package.json" />
+    <Content Include="Content\dragonfly\README.md" />
+    <Content Include="Content\dragonfly\src\style\main.scss" />
+    <Content Include="Content\dragonfly\src\style\_variables.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -477,6 +499,7 @@
     <Content Include="Views\Estrutura\Details.cshtml" />
     <Content Include="Views\Estrutura\Edit.cshtml" />
     <Content Include="Views\Estrutura\Index.cshtml" />
+    <Content Include="Views\Page\CreateHelper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

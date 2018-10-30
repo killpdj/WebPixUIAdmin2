@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using WebPixUIAdmin.Models;
 
 namespace WebPixUIAdmin.Controllers
@@ -25,12 +26,14 @@ namespace WebPixUIAdmin.Controllers
                 else
                 {
                     ViewBag.TemporariaMensagem = "Usuario ou senha invalida";
+                    Response.Write("Usuario ou senha invalida");
                     return View();
                 }
             }
-            catch
+            catch(Exception e)
             {
                 ViewBag.TemporariaMensagem = "Usuario ou senha invalida";
+                Response.Write(e.InnerException);
                 return View();
             }
         }
