@@ -52,27 +52,24 @@
             $('.gjs-pn-buttons').append('<span class="gjs-pn-btn fa fa-floppy-o salvar"></span>');
 
             $('.salvar').click(function () {
-                var obj = {
-                    "id": 0,
-                    "nome": null,
-                    "descricao": null,
-                    "dataCriacao": "0001-01-01T00:00:00",
-                    "dateAlteracao": "0001-01-01T00:00:00",
-                    "usuarioCriacao": 0,
-                    "usuarioEdicao": 0,
-                    "status": 0,
-                    "idCliente": 0,
-                    "titulo": null,
-                    "conteudo": null,
-                    "url": null,
-                    "idMenu": 0,
-                    "ativo": null
-                }
+                var conteudo = editor.getHtml();
+                var css = editor.getCss();
 
+                var data = JSON.stringify({
+                    "conteudo": conteudo
+                });
 
-
-
-
+                $.ajax({
+                    url: '/Page/CreateForHelp',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        // get the result and do some magic with it
+                        window.location = '/Page/Edit/0'
+                    }
+                });
             });
         });
     </script>
