@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using WebPixUIAdmin.Models;
-using WebPixUIAdmin.Models.Principal;
 using WebPixUIAdmin.PixCore;
 
 namespace WebPixUIAdmin.Controllers
@@ -28,6 +27,7 @@ namespace WebPixUIAdmin.Controllers
 
             return View(PagesFiltrado);
         }
+        
 
         // GET: Page/Details/5
         public ActionResult Details(int? id)
@@ -39,7 +39,7 @@ namespace WebPixUIAdmin.Controllers
             }
 
             var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
-            var url = keyUrl + "seguranca/Principal/BuscarTemas/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
+            var url = keyUrl + "Seguranca/Principal/buscarpaginas/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
             var client = new WebClient { Encoding = System.Text.Encoding.UTF8 };
             var result = client.DownloadString(string.Format(url));
             var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
@@ -57,18 +57,6 @@ namespace WebPixUIAdmin.Controllers
         {
             return View();
         }
-        public ActionResult CreateHelper()
-        {
-            var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
-            var url = keyUrl + "Seguranca/Principal/BuscarTemas/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
-            var client = new WebClient { Encoding = System.Text.Encoding.UTF8 };
-            var result = client.DownloadString(string.Format(url));
-            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
-            TemasViewModel[] pageViewModel = jss.Deserialize<TemasViewModel[]>(result);
-            ViewBag.Conteudo = pageViewModel.FirstOrDefault().Conteudo;
-            return View();
-        }
-
 
         // POST: Page/Create
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
@@ -99,17 +87,6 @@ namespace WebPixUIAdmin.Controllers
 
             return View(pageViewModel);
         }
-        [HttpPost]
-        [ValidateInput(false)]
-        public JsonResult CreateForHelp(String conteudo)
-        {
-
-            PageViewModel page = new PageViewModel();
-            page.Conteudo = conteudo;
-
-            Session["Helper"] = page;
-            return Json(new { msg = "deu certo" } ,JsonRequestBehavior.AllowGet);
-        }
 
         // GET: Page/Edit/5
         public ActionResult Edit(int? id)
@@ -117,11 +94,6 @@ namespace WebPixUIAdmin.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            if (id == 0)
-            {
-                PageViewModel obj = Session["Helper"] as PageViewModel;
-                return View(obj);
             }
 
             var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
@@ -135,7 +107,27 @@ namespace WebPixUIAdmin.Controllers
             {
                 return HttpNotFound();
             }
-            
+            return View(pageViewModel.Where(z => z.ID == id).FirstOrDefault());
+        }
+
+        public ActionResult EditorDynamic(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
+            var url = keyUrl + "Seguranca/Principal/buscarpaginas/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
+            var client = new WebClient { Encoding = System.Text.Encoding.UTF8 };
+            var result = client.DownloadString(string.Format(url));
+            var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+            PageViewModel[] pageViewModel = jss.Deserialize<PageViewModel[]>(result);
+
+            if (pageViewModel == null)
+            {
+                return HttpNotFound();
+            }
             return View(pageViewModel.Where(z => z.ID == id).FirstOrDefault());
         }
 
@@ -149,26 +141,10 @@ namespace WebPixUIAdmin.Controllers
         {
             pageViewModel.UsuarioEdicao = 1;
             pageViewModel.idCliente = IDCliente;
-            if(pageViewModel.ID == 0)
-            {
-                if (ModelState.IsValid)
-                {
-                    pageViewModel.DataCriacao = Convert.ToDateTime("01/08/1993");
-                    pageViewModel.DateAlteracao = Convert.ToDateTime("01/08/1993");
-                    pageViewModel.idCliente = IDCliente;
-                    using (var client = new WebClient())
-                    {
-                        var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
-                        var url = keyUrl + "Seguranca/Principal/salvarpagina/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
-                        client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                        var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
-                        var Envio = new { page = pageViewModel };
-                        var data = jss.Serialize(Envio);
-                        var result = client.UploadString(url, "POST", data);
-                    }
-                    return RedirectToAction("Index");
-                }
-            }
+          //  var pagina = pageViewModel.Conteudo;
+
+          //  pageViewModel.Conteudo //= pagina;
+
             if (ModelState.IsValid)
             {
                 var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
@@ -187,12 +163,10 @@ namespace WebPixUIAdmin.Controllers
             return View(pageViewModel);
         }
 
-
-
         // GET: Page/Delete/5
         public JsonResult Delete(int? id)
         {
-
+            
             var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
             var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
             var Envio = new { idPagina = new { idPagina = id } };
@@ -204,7 +178,7 @@ namespace WebPixUIAdmin.Controllers
                     var url = keyUrl + "Seguranca/Principal/DeletarPagina/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
                     client.Headers[HttpRequestHeader.ContentType] = "application/json";
                     var result = client.UploadString(url, "POST", data);
-                    return Json(new { msg = result }, JsonRequestBehavior.AllowGet);
+                    return Json(new { msg = result },JsonRequestBehavior.AllowGet);
                 }
 
             }

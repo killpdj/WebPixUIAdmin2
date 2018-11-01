@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Editor</title>
+    <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/grapesjs"></script>
+    <script src="~/Content/dynamic/dist/grapesjs-blocks-basic.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .gjs-block-svg {
+            width: 61%;
+        }
+
+        .gjs-block-svg-path {
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="gjs" style="height:0px; overflow:hidden">
+        <!-- Mecher ate aqui-->
+        <!--CSS  -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="http://mundowebpix.com/contentuser/mundowebpix/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://mundowebpix.com/contentuser/mundowebpix/css/jquery.fancybox.css">
+        <link rel="stylesheet" href="http://mundowebpix.com/contentuser/mundowebpix/css/flexslider.css">
+        <link rel="stylesheet" href="http://mundowebpix.com/contentuser/mundowebpix/css/styles.css">
+        <link rel="stylesheet" href="http://mundowebpix.com/contentuser/mundowebpix/css/queries.css">
+        <link rel="stylesheet" href="http://mundowebpix.com/contentuser/mundowebpix/css/etline-font.css">
+        <link rel="stylesheet" href="http://mundowebpix.com/contentuser/mundowebpix/bower_components/animate.css/animate.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <script src="http://mundowebpix.com/contentuser/mundowebpix/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <link rel="stylesheet" href="http://mundowebpix.com/page/GetCss">
+        @RenderBody()
+    </div>
+
+
+    <script type="text/javascript">
+        var editor = grapesjs.init({
+            height: '100%',
+            noticeOnUnload: 0,
+            storageManager: { autoload: 0 },
+            container: '#gjs',
+            fromElement: true,
+
+            plugins: ['gjs-blocks-basic'],
+            pluginsOpts: {
+                'gjs-blocks-basic': {}
+            }
+        });
+
+        window.editor = editor;
+    </script>
+</body>
+</html>
