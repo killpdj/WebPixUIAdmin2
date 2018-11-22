@@ -211,6 +211,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Helper\ConvertsHelper.cs" />
     <Compile Include="Models\Principal\BaseModel.cs" />
     <Compile Include="Models\Principal\ClienteViewModel.cs" />
     <Compile Include="Models\Principal\ConfiguracaoViewModel.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Models\Principal\EstruturaViewModel.cs" />
     <Compile Include="Models\Principal\LoginViewModel.cs" />
     <Compile Include="Models\Principal\MenuViewModel.cs" />
+    <Compile Include="Models\Principal\PageModel.cs" />
     <Compile Include="Models\Principal\PageViewModel.cs" />
     <Compile Include="Models\Principal\PerfilViewModel.cs" />
     <Compile Include="Models\Auxiliares\Produto\PrecoViewModel.cs" />
@@ -499,7 +501,10 @@
     <Content Include="Views\Estrutura\Details.cshtml" />
     <Content Include="Views\Estrutura\Edit.cshtml" />
     <Content Include="Views\Estrutura\Index.cshtml" />
+    <Content Include="Views\Shared\LayoutDynamic.cshtml" />
+    <Content Include="Views\Page\EditorDynamic.cshtml" />
     <Content Include="Views\Page\CreateHelper.cshtml" />
+    <Content Include="Views\Page\EditorHelper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

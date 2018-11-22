@@ -1,95 +1,98 @@
-# GrapesJS Basic Blocks
-
-This plugin contains some basic blocks for the GrapesJS editor
-
-[Demo](http://grapesjs.com/demo.html)
-<br/>
-
-
-
-
+# GrapesJS Preset Webpage
 
 ## Summary
 
-* Plugin name: `gjs-blocks-basic`
-* Blocks: `column1`, `column2`, `column3`, `column3-7`, `text`, `link`, `image`, `video`, `map`
-
-
-
-
+* Plugin name: **`gjs-preset-webpage`**
+* Includes:
+  * `grapesjs-blocks-basic` Basic set of blocks
+  * `grapesjs-navbar` Simple navbar component
+  * `grapesjs-component-countdown` Simple countdown component
+  * `grapesjs-plugin-forms` Set of form components and blocks
+  * `grapesjs-aviary` Add the Aviary Image Editor
+  * `grapesjs-plugin-filestack` Add Filestack uploader in Asset Manager
+  * `grapesjs-plugin-export` Export GrapesJS templates in a zip archive
+* Commands:
+  * `gjs-open-import-webpage` Opens a modal for the import
+  * `set-device-desktop` Set desktop device
+  * `set-device-tablet` Setup tablet device
+  * `set-device-mobile` Setup mobile device
+  * `canvas-clear` Clear all components and styles inside canvas
+* Blocks:
+  * `link-block`
+  * `quote`
+  * `text-basic`
 
 ## Options
 
-|Option|Description|Default|
-|-|-|-
-|`blocks`|Which blocks to add|`['column1', 'column2', 'column3', 'column3-7', 'text', 'link', 'image', 'video', 'map']` (all)|
-|`category`|Category name|`Basic`|
-|`flexGrid`|Make use of flexbox for the grid|`false`|
-|`stylePrefix`|Classes prefix|`gjs-`|
-|`addBasicStyle`|Use basic CSS for blocks|`true`|
-|`labelColumn1`|1 Column label|`1 Column`|
-|`labelColumn2`|2 Columns label|`2 Columns`|
-|`labelColumn3`|3 Columns label|`3 Columns`|
-|`labelColumn37`|3/7 Columns label|`2 Columns 3/7`|
-|`labelText`|Text label|`Text`|
-|`labelLink`|Link label|`Link`|
-|`labelImage`|Image label|`Image`|
-|`labelVideo`|Video label|`Video`|
-|`labelMap`|Map label|`Map`|
-
-
-
-
+| Option | Description | Default |
+| - | - | - |
+| `blocks` | Which blocks to add | `['link-block', 'quote', 'text-basic']` |
+| `modalImportTitle` | Modal import title | `'Import'` |
+| `modalImportButton` | Modal import button text | `'Import'` |
+| `modalImportLabel` | Import description inside import modal | `''` |
+| `modalImportContent` | Default content to setup on import model open. Could also be a function with a dynamic content return (must be a string) eg. `modalImportContent: editor => editor.getHtml()` | `''` |
+| `importViewerOptions` | Code viewer (eg. CodeMirror) options | `{}` |
+| `textCleanCanvas` | Confirm text before cleaning the canvas | `'Are you sure to clean the canvas?'` |
+| `showStylesOnChange` | Show the Style Manager on component change | `true` |
+| `textGeneral` | Text for General sector in Style Manager | `'General'` |
+| `textLayout` | Text for Layout sector in Style Manager | `'Layout'` |
+| `textTypography` | Text for Typography sector in Style Manager | `'Typography'` |
+| `textDecorations` | Text for Decorations sector in Style Manager | `'Decorations'` |
+| `textExtra` | Text for Extra sector in Style Manager | `'Extra'` |
+| `customStyleManager` | Use custom set of sectors for the Style Manager | `[]` |
+| `blocksBasicOpts` | `grapesjs-blocks-basic` plugin options. By setting this option to `false` will avoid loading the plugin | `{}` |
+| `navbarOpts` | `grapesjs-navbar` plugin options. By setting this option to `false` will avoid loading the plugin | `{}` |
+| `countdownOpts` | `grapesjs-component-countdown` plugin options. By setting this option to `false` will avoid loading the plugin | `{}` |
+| `formsOpts` | `grapesjs-plugin-forms` plugin options. By setting this option to `false` will avoid loading the plugin | `{}` |
+| `exportOpts` | `grapesjs-plugin-export` plugin options. By setting this option to `false` will avoid loading the plugin | `{}` |
+| `aviaryOpts` | `grapesjs-aviary` plugin options. Aviary library should be included manually. By setting this option to `false` will avoid loading the plugin | `false` |
+| `filestackOpts` | `grapesjs-plugin-filestack` plugin options. Filestack library should be included manually. By setting this option to `false` will avoid loading the plugin | `false` |
 
 ## Download
 
-* `npm i grapesjs-blocks-basic`
-
-
-
-
+```sh
+$ npm i grapesjs-preset-webpage
+```
 
 ## Usage
 
 ```html
-<link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet"/>
-<script src="https://unpkg.com/grapesjs"></script>
-<script src="path/to/grapesjs-blocks-basic.min.js"></script>
+<link href="path/to/grapes.min.css" rel="stylesheet"/>
+<link href="path/to/grapesjs-preset-webpage.min.css" rel="stylesheet"/>
+<script src="path/to/grapes.min.js"></script>
+<script src="path/to/grapesjs-preset-webpage.min.js"></script>
 
 <div id="gjs"></div>
 
 <script type="text/javascript">
   var editor = grapesjs.init({
-      fromElement: 1,
       container : '#gjs',
-      plugins: ['gjs-blocks-basic'],
+      ...
+      plugins: ['gjs-preset-webpage'],
       pluginsOpts: {
-        'gjs-blocks-basic': {/* ...options */}
+        'gjs-preset-webpage': {
+          // options
+        }
       }
   });
 </script>
 ```
-
-
-
-
 
 ## Development
 
 Clone the repository
 
 ```sh
-$ git clone https://github.com/artf/grapesjs-blocks-basic.git
-$ cd grapesjs-blocks-basic
+$ git clone git@github.com:artf/grapesjs-preset-webpage.git && cd grapesjs-preset-webpage
 ```
 
-Install it
+Install dependencies
 
 ```sh
 $ npm i
 ```
 
-The plugin relies on GrapesJS via `peerDependencies` so you have to install it manually (without adding it to package.json)
+The plugin relies on GrapesJS via `peerDependencies`, so you have to install it manually (without adding it to package.json)
 
 ```sh
 $ npm i grapesjs --no-save
@@ -100,10 +103,6 @@ Start the dev server
 ```sh
 $ npm start
 ```
-
-
-
-
 
 ## License
 

@@ -8,6 +8,5 @@
         public int PerfilUsuario { get; set; }
         public string Senha { get; set; }
         public string VAdmin { get; set; }
-        public string Ativo { get; set; }
     }
 }

@@ -19,7 +19,6 @@ export default (editor, config) => {
   const obl = 'open-blocks';
   const ful = 'fullscreen';
   const prv = 'preview';
-  const sav = 'Save';
 
   eConfig.showDevices = 0;
 
@@ -33,14 +32,7 @@ export default (editor, config) => {
       command: swv,
       context: swv,
       className: 'fa fa-square-o',
-    },
-    {
-      id: sav,
-      command: sav,
-      context: sav,
-      className: 'fa fa-floppy-o',
-    },
-    {
+    },{
       id: prv,
       context: prv,
       command: e => e.runCommand(prv),
@@ -78,14 +70,7 @@ export default (editor, config) => {
       command: osm,
       active: true,
       className: 'fa fa-paint-brush',
-    },
-    {
-      id: sav,
-      command: sav,
-      context: sav,
-      className: 'fa fa-floppy-o',
-    },
-    {
+    },{
       id: otm,
       command: otm,
       className: 'fa fa-cog',

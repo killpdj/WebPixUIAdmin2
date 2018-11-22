@@ -1,0 +1,19 @@
+diff a/WebPixUIAdmin/Controllers/Principal/PageController.cs b/WebPixUIAdmin/Controllers/Principal/PageController.cs	(rejected hunks)
+@@ -99,6 +99,17 @@
+ 
+             return View(pageViewModel);
+         }
++        [HttpPost]
++        [ValidateInput(false)]
++        public JsonResult CreateForHelp(String conteudo)
++        {
++
++            PageViewModel page = new PageViewModel();
++            page.Conteudo = conteudo;
++
++            Session["Helper"] = page;
++            return Json(new { msg = "deu certo" } ,JsonRequestBehavior.AllowGet);
++        }
+ 
+         // GET: Page/Edit/5
+         public ActionResult Edit(int? id)
