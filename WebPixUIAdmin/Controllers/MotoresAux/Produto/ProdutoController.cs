@@ -20,7 +20,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
         {
 
             var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
-            var url = keyUrl + "Seguranca/Produto/buscarproduto/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
+            var url = keyUrl + "Seguranca/WpProdutos/BuscarProdutos/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
             var client = new WebClient { Encoding = System.Text.Encoding.UTF8 };
             var result = client.DownloadString(string.Format(url));
             var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
@@ -41,7 +41,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
             }
 
             var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
-            var url = keyUrl + "Seguranca/Produto/buscarproduto/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
+            var url = keyUrl + "Seguranca/WpProdutos/BuscarProdutos/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
             var client = new WebClient { Encoding = System.Text.Encoding.UTF8 };
             var result = client.DownloadString(string.Format(url));
             var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
@@ -80,7 +80,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
                 using (var client = new WebClient())
                 {
                     var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
-                    var url = keyUrl + "Seguranca/Produto/salvarproduto/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
+                    var url = keyUrl + "Seguranca/WpProdutos/SalvarProduto/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
                     client.Headers[HttpRequestHeader.ContentType] = "application/json";
                     var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
                     var Envio = new { produto = produtoViewModel };
@@ -102,7 +102,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
             }
 
             var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
-            var url = keyUrl + "Seguranca/Produto/buscarproduto/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
+            var url = keyUrl + "Seguranca/WpProdutos/BuscarProdutos/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
             var client = new WebClient { Encoding = System.Text.Encoding.UTF8 };
             var result = client.DownloadString(string.Format(url));
             var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
@@ -135,7 +135,7 @@ namespace WebPixUIAdmin.Controllers.MotoresAux
                 using (var client = new WebClient())
                 {
                     var keyUrl = ConfigurationManager.AppSettings["UrlAPI"].ToString();
-                    var url = keyUrl + "Seguranca/Produto/salvarproduto/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
+                    var url = keyUrl + "Seguranca/WpProdutos/SalvarProduto/" + IDCliente + "/" + PixCoreValues.UsuarioLogado.IdUsuario;
                     client.Headers[HttpRequestHeader.ContentType] = "application/json";
                     var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
                     var Envio = new { produto = produtoViewModel };

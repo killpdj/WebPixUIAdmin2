@@ -7,6 +7,5 @@
         public int idCliente { get; set; }
         public int idPerfil { get; set; }
         public int IdUsuario { get; set; }
-        public string Ativo { get; set; }
     }
 }

@@ -211,6 +211,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Helper\ConvertsHelper.cs" />
     <Compile Include="Models\Principal\BaseModel.cs" />
     <Compile Include="Models\Principal\ClienteViewModel.cs" />
     <Compile Include="Models\Principal\ConfiguracaoViewModel.cs" />
@@ -218,12 +219,14 @@
     <Compile Include="Models\Principal\EstruturaViewModel.cs" />
     <Compile Include="Models\Principal\LoginViewModel.cs" />
     <Compile Include="Models\Principal\MenuViewModel.cs" />
+    <Compile Include="Models\Principal\PageModel.cs" />
     <Compile Include="Models\Principal\PageViewModel.cs" />
     <Compile Include="Models\Principal\PerfilViewModel.cs" />
     <Compile Include="Models\Auxiliares\Produto\PrecoViewModel.cs" />
     <Compile Include="Models\Auxiliares\Produto\ProdutoSkuViewModel.cs" />
     <Compile Include="Models\Auxiliares\Produto\ProdutoViewModel.cs" />
     <Compile Include="Models\Auxiliares\Produto\PropiedadesViewModel.cs" />
+    <Compile Include="Models\Principal\TemasViewModel.cs" />
     <Compile Include="Models\Principal\UsuarioViewModel.cs" />
     <Compile Include="Helper\PixCore\PixCore.cs" />
     <Compile Include="Models\WebPixUIAdminContext.cs" />
@@ -233,9 +236,21 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\dynamic\dist\grapesjs-blocks-basic.min.js" />
-    <Content Include="Content\dynamic\index.html" />
-    <Content Include="Content\dynamic\webpack.config.js" />
+    <Content Include="Content\dragonfly\.gitignore" />
+    <Content Include="Content\dragonfly\dist\grapesjs-blocks-basic.min.js" />
+    <Content Include="Content\dragonfly\dist\grapesjs-preset-webpage.min.css" />
+    <Content Include="Content\dragonfly\dist\grapesjs-preset-webpage.min.js" />
+    <Content Include="Content\dragonfly\index.html" />
+    <Content Include="Content\dragonfly\src\blocks.js" />
+    <Content Include="Content\dragonfly\src\blocks\index.js" />
+    <Content Include="Content\dragonfly\src\commands\index.js" />
+    <Content Include="Content\dragonfly\src\commands\openImport.js" />
+    <Content Include="Content\dragonfly\src\components\index.js" />
+    <Content Include="Content\dragonfly\src\consts.js" />
+    <Content Include="Content\dragonfly\src\index.js" />
+    <Content Include="Content\dragonfly\src\panels\index.js" />
+    <Content Include="Content\dragonfly\src\styles\index.js" />
+    <Content Include="Content\dragonfly\webpack.config.js" />
     <Content Include="Content\layout2\buttons.html" />
     <Content Include="Content\layout2\calendar.html" />
     <Content Include="Content\layout2\charts.html" />
@@ -398,11 +413,12 @@
     <Content Include="Content\layout2\img\demo\Thumbs.db" />
     <Content Include="Content\layout2\img\icons\32\Thumbs.db" />
     <Content Include="Content\layout2\img\Thumbs.db" />
-    <Content Include="Content\dynamic\.gitignore" />
-    <Content Include="Content\dynamic\LICENSE" />
-    <Content Include="Content\dynamic\package-lock.json" />
-    <Content Include="Content\dynamic\package.json" />
-    <Content Include="Content\dynamic\README.md" />
+    <Content Include="Content\dragonfly\LICENSE" />
+    <Content Include="Content\dragonfly\package-lock.json" />
+    <Content Include="Content\dragonfly\package.json" />
+    <Content Include="Content\dragonfly\README.md" />
+    <Content Include="Content\dragonfly\src\style\main.scss" />
+    <Content Include="Content\dragonfly\src\style\_variables.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -487,6 +503,8 @@
     <Content Include="Views\Estrutura\Index.cshtml" />
     <Content Include="Views\Shared\LayoutDynamic.cshtml" />
     <Content Include="Views\Page\EditorDynamic.cshtml" />
+    <Content Include="Views\Page\CreateHelper.cshtml" />
+    <Content Include="Views\Page\EditorHelper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

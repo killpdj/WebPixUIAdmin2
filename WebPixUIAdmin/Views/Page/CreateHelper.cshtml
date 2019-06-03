@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Criador de sites WP</title>
+    <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet">
+    <link href="~/Content/dragonfly/dist/grapesjs-preset-webpage.min.css" rel="stylesheet" />
+    <script src="//feather.aviary.com/imaging/v3/editor.js"></script>
+    <script src="https://static.filestackapi.com/v3/filestack-0.1.10.js"></script>
+    <script src="https://unpkg.com/grapesjs"></script>
+    <script src="~/Content/dragonfly/dist/grapesjs-preset-webpage.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="gjs" style="height:0px; overflow:hidden">
+        @Html.Raw(HttpUtility.HtmlDecode(ViewBag.Conteudo))
+    </div>
+
+
+    <script type="text/javascript">
+        var editor = grapesjs.init({
+            height: '100%',
+            showOffsets: 1,
+            noticeOnUnload: 0,
+            storageManager: {
+                autoload: 0
+            },
+            container: '#gjs',
+            fromElement: true,
+
+            plugins: ['gjs-preset-webpage'],
+            pluginsOpts: {
+                'gjs-preset-webpage': {}
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.gjs-pn-buttons').append('<span class="gjs-pn-btn fa fa-floppy-o salvar"></span>');
+
+            $('.salvar').click(function () {
+                var conteudo = editor.getHtml();
+                var css = editor.getCss();
+
+                var data = JSON.stringify({
+                    "conteudo": conteudo
+                });
+
+                $.ajax({
+                    url: '/Page/CreateForHelp',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        // get the result and do some magic with it
+                        window.location = '/Page/Edit/0'
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

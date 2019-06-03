@@ -11,7 +11,6 @@
         public string LinkManual { get; set; }
         public string UrlManual { get; set; }
         public int Ordem { get; set; }
-        public string Ativo { get; set; }
 
     }
 }
